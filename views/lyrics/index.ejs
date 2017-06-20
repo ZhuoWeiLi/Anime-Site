@@ -9,7 +9,7 @@
     <% if (lyric.lyrics.length <= 200) { %>
     <p class = 'text-center'><%= lyric.lyrics %></p>
     <% } else { %>
-    <p class = 'text-center'><%= lyric.lyrics.slice(0, 200)%>...</p>
+    <p class = 'text-center wrap'><%= lyric.lyrics.slice(0, 200)%>...</p>
     <% } %>
     
     <a href = './lyrics/<%= lyric._id %>'>See Full Page</a>

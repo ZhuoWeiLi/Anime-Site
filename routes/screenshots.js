@@ -16,20 +16,10 @@ router.get('/', function(req, res) {
 })
 
 router.get("/new", function(req, res) {
-    // find campground by id
-    Show.findById(req.params.id, function(err, show) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.render("screenshots/new", {
-                show: show
-            });
-        }
-    })
+    res.render("screenshots/new")
 });
 
-router.post('/screenshots', function(req, res) {
+router.post('/', function(req, res) {
 Screenshot.create(req.body.screenshot, function(err, screenshot) {
         if (err) console.log(err);
         else {

@@ -27,12 +27,7 @@ router.post('/', function(req, res) {
     });
 });
 
-router.get('/:id/*',function(req, res, next){
-    Show.findById(req.params.id, (err, show)=> {
-        res.locals.show = show
-        next();
-    })
-})
+
 
 module.exports = router;
 

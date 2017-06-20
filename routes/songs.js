@@ -31,11 +31,9 @@ router.post('/', function(req, res) {
     req.body.song.link = base + '/embed/' + v
     Song.create(req.body.song, function(err, song) {
         if (err) return res.redirect('/shows/' + res.params.id + '/songs/new')
-        Show.findById(req.params.id).exec().then((show) => {
-            show.songs.push(song);
-            show.save(function() {
-                res.redirect('/shows/' + req.params.id + '/songs');
-            })
+        res.locals.show.songs.push(song);
+        res.locals.show.save(function() {
+        res.redirect('/shows/' + req.params.id + '/songs');
         })
     })
 })

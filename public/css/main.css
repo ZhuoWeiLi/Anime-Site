@@ -18,6 +18,10 @@ font-family: Risque;
     padding: 15px;
 }
 
+.wrap {
+    white-space: pre-wrap;
+}
+
 .navbar {
     margin-bottom: 0px;
 }

@@ -28,6 +28,27 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+app.use('/shows/:id/*',function(req, res, next){
+    Show.findById(req.params.id, (err, show)=> {
+        res.locals.show = show
+        next();
+    })
+})
+
+app.use('/shows/:id/songs/:songid/*',function(req, res, next){
+    Song.findById(req.params.songid, (err, song)=> {
+        res.locals.song = song;
+        next();
+    })
+})
+
+app.use('/shows/:id/songs/:songid/lyrics/:lyricid',function(req, res, next){
+    Lyric.findById(req.params.lyricid, (err, lyric)=> {
+        res.locals.lyric = lyric;
+        next();
+    })
+})
+
 app.use('/shows', showRoutes);
 app.use('/shows/:id/screenshots', screenshotRoutes);
 app.use('/shows/:id/songs', songRoutes);

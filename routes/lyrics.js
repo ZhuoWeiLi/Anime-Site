@@ -16,20 +16,16 @@ router.get('/new', function(req, res) {
 })
 
 router.post('/', function(req, res) {
-    Song.findById(req.params.songid, (err, song) => {
         Lyric.create(req.body.lyric, function(err, lyric){
-            song.lyrics.push(lyric)
-            song.save(function(err, song){
+            res.locals.song.lyrics.push(lyric)
+            res.locals.song.save(function(err, song){
                 res.redirect('../lyrics')
-            });
         })
     })
 })
 
 router.get('/:lyricid', function(req, res) {
-    Lyric.findById(req.params.lyricid, (err, lyric) =>{
-        res.render('lyrics/show')
-    })
+    res.render('lyrics/show')
 })
 
 module.exports = router;
