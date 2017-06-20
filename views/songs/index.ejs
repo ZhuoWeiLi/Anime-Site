@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+
+  <h1 class='text-center'>
+    <%= show.title %>
+  </h1>
+
+  <div class="tab">
+    <a class='btn btn-default' href='/shows/<%=show._id%>/screenshots'>Screenshots</a>
+    <a class='btn btn-default active' href='/shows/<%=show._id%>/songs' +>Songs</a>
+  </div>
+
+
+  <div id='display'>
+    <div class='row'>
+      <% show.songs.forEach(function (song, i) { %>
+
+        <div class='col-md-4'>
+          <div class="youtube-player" data-id="<%= song.vidID %>"></div>
+          <p class='text-center'>
+            <%= song.title %><br><a href="./songs/<%= song._id %>/lyrics">Show Lyrics</a></p>
+        </div>
+        <% }) %>
+          <div class="col-md-4">
+            <a id = 'newSongWrapper' href='/shows/<%=show._id%>/songs/new'>
+              <img id='newSong' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/YouTube_Silver_Play_Button.svg/2000px-YouTube_Silver_Play_Button.svg.png" alt="">
+            </a>
+            <p class='text-center'>Add a New Song</p>
+          </div>
+    </div>
+  </div>
+
+<script src = "/js/video.js"></script>
+
+  <% include ../partials/footer.ejs %>

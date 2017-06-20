@@ -1,0 +1,19 @@
+<% include ../partials/header.ejs %>
+
+<h1>Lyrics<a class = 'btn btn-primary pull-right' href = './lyrics/new'>Add Lyrics</a></h1>
+
+
+<% song.lyrics.forEach((lyric) => { %>
+    <hr>
+    <h2><%= lyric.language%></h2>
+    <% if (lyric.lyrics.length <= 200) { %>
+    <p class = 'text-center'><%= lyric.lyrics %></p>
+    <% } else { %>
+    <p class = 'text-center'><%= lyric.lyrics.slice(0, 200)%>...</p>
+    <% } %>
+    
+    <a href = './lyrics/<%= lyric._id %>'>See Full Page</a>
+    
+<% }) %>
+
+<% include ../partials/footer.ejs %>

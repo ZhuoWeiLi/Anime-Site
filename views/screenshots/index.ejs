@@ -1,0 +1,42 @@
+<% include ../partials/header.ejs %>
+
+<h1 class = 'text-center'><%= show.title %></h1>
+
+<div class="tab">
+  <a class = 'btn btn-default active' href = '/shows/<%=show._id%>/screenshots'>Screenshots</a>
+  <a class = 'btn btn-default' href = '/shows/<%=show._id%>/songs'+>Songs</a>
+</div>
+
+
+<div id = 'display'>
+  <div class ='row'>
+        <% show.screenshots.forEach(function (screenshot, i) { %>
+        <div class = 'col-md-3'>  
+        <div class = 'thumbnail'>
+        <a href="<%= screenshot.image %>" data-fancybox="images">
+      <img src = '<%= screenshot.image %>'></img>
+      
+  </a>
+  <div class = 'caption text-center'>
+    Episode <%= screenshot.episode %>
+  </div>
+  </div>
+</div>
+            
+        <% }) %>
+        <div class = 'col-md-3'>  
+        <div class = 'thumbnail'>
+          <a href = '/shows/<%= show._id %>/screenshots/new'>
+          <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEd28ld-QLSSfNqwCz24NclF3t08_nIdbyhlR4rEZsoMRyNOqf'>
+          </a>
+          <div class = 'caption text-center'>
+            Add an image
+          </div>
+    </div>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+
+<% include ../partials/footer.ejs %>
