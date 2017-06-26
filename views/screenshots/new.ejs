@@ -2,12 +2,13 @@
 
     <h1 class = 'text-center'>Add a Screenshot</h1>
     <form action = "/shows/<%= show._id %>/screenshots" method = "POST">
+        <div class="form-group">
+            <input class="form-control" type="text" name="screenshot[episode]" placeholder="Episode Number">
+        </div>
          <div class="form-group">
             <input class="form-control" type="text" name="screenshot[image]" placeholder="Image Url">
         </div>
-                 <div class="form-group">
-            <input class="form-control" type="text" name="screenshot[episode]" placeholder="Episode Number">
-        </div>
+
         <div class="form-group">
             <button class="btn btn-lg btn-success btn-block">Submit!</button>
         </div>
