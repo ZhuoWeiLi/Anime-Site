@@ -1,5 +1,5 @@
 {
-  "name": "jrpglist",
+  "name": "Anime-Site",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  
+  "engines": {
+    "node": "8.1.0"
+  }
   "author": "Zhuo Wei Li",
   "license": "ISC",
   "dependencies": {
