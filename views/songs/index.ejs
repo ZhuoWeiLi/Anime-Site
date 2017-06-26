@@ -14,13 +14,13 @@
     <div class='row'>
       <% show.songs.forEach(function (song, i) { %>
 
-        <div class='col-md-4'>
+        <div class='col-md-4 col-sm-6'>
           <div class="youtube-player" data-id="<%= song.vidID %>"></div>
           <p class='text-center'>
             <%= song.title %><br><a href="./songs/<%= song._id %>/lyrics">Show Lyrics</a></p>
         </div>
         <% }) %>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <a id = 'newSongWrapper' href='/shows/<%=show._id%>/songs/new'>
               <img id='newSong' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/YouTube_Silver_Play_Button.svg/2000px-YouTube_Silver_Play_Button.svg.png" alt="">
             </a>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css">
@@ -17,8 +17,14 @@
       <a class="navbar-brand" href="/shows">Home</a>
     </div>
         <ul class = "nav navbar-nav navbar-right">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Register</a></li>
+              <% if (currentUser) { %>
+              <li><a href="#"><%= currentUser.username %></a></li>
+              <li><a href="/signout">Sign Out</a></li>
+              <% } else { %> 
+              
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+              <% } %>
         </ul>
         </div>
         </nav>
