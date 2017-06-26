@@ -24,7 +24,7 @@ const express = require('express'),
 mongoose.Promise = global.Promise;
 
 seedDB();
-mongoose.connect("mongodb://<slayingshot>:<animeme>@ds139352.mlab.com:39352/animesite")
+mongoose.connect("mongodb://slayingshot:animeme@ds139352.mlab.com:39352/animesite")
 // mongoose.connect("mongodb://localhost/animeme");
 app.set('view engine', 'ejs');
 
