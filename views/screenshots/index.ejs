@@ -9,9 +9,9 @@
 
 
 <div id = 'display'>
-  <div class ='row'>
+    <div class = 'clearfix'>
         <% show.screenshots.forEach(function (screenshot, i) { %>
-        <div class = 'col-lg-3 col-md-4 col-sm-6 '>  
+        <div class = 'col-lg-3 col-md-4 col-sm-6'>  
         <div class = 'thumbnail'>
         <a href="<%= screenshot.image %>" data-fancybox="images">
       <img src = '<%= screenshot.image %>'></img>
@@ -24,11 +24,13 @@
 </div>
             
         <% }) %>
-        <div class = 'col-lg-3 col-md-4 col-sm-6 ''>  
+        <div class = 'col-lg-3 col-md-4 col-sm-6 '>  
         <div class = 'thumbnail'>
           <a href = '/shows/<%= show._id %>/screenshots/new'>
           <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEd28ld-QLSSfNqwCz24NclF3t08_nIdbyhlR4rEZsoMRyNOqf'>
           </a>
+
+          
           <div class = 'caption text-center'>
             Add an image
           </div>
