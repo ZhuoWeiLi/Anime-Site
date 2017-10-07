@@ -1,29 +1,113 @@
 body {
-    background: #757F9A; 
-background: -webkit-gradient(linear, 100% 0, 0 0, from(#D7DDE8), to(#757F9A));
-background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
-background: -moz-linear-gradient(to right, #D7DDE8, #757F9A);
-background: -o-linear-gradient(to right, #D7DDE8, #757F9A);
-background: linear-gradient(to right, #D7DDE8, #757F9A);  
-font-family: Risque;
+    background: #757F9A;
+    background: -webkit-gradient(linear, 100% 0, 0 0, from(#D7DDE8), to(#757F9A));
+    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+    background: -moz-linear-gradient(to right, #D7DDE8, #757F9A);
+    background: -o-linear-gradient(to right, #D7DDE8, #757F9A);
+    background: linear-gradient(to right, #D7DDE8, #757F9A);
+    font-family: Risque;
 
 }
 
-#logo {
-    margin: 3% 0 1% 8%;
+button {
+    border: none;
+    background-color: inherit;
 }
 
 #content {
     background: white;
     padding: 15px;
+    position: relative;
+    padding-bottom: 50px;
+
 }
 
-.wrap {
-    white-space: pre-wrap;
+
+#display {
+    border: solid 1px gray;
+    padding: 1px;
+    position: relative;
+    padding-bottom: 40px;
 }
+
+
+#logo {
+    margin: 3% 0 1% 8%;
+}
+
+
+.delete-button {
+    bottom: 1px;
+    right: 1px;
+    position: absolute;
+}
+
+.edit-button {
+    bottom: 1px;
+    left: 1px;
+    position: absolute;
+}
+
+.editDelete {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    padding: inherit;
+}
+
+
+.fa {
+    padding: 2px;
+    font-size: 12px;
+}
+
+.fa-pencil {
+    color: white;
+    background: steelblue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.fa-pencil:hover {
+    color: white;
+    background: black;
+    transition: 1s;
+}
+
+.fa-trash-o {
+
+    color: white;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.fa-trash-o:hover {
+    background: black;
+    transition: 1s;
+}
+
+
+.inline {
+    display: inline-block;
+}
+
 
 .navbar {
     margin-bottom: 0px;
+}
+
+
+
+.relative {
+    position: relative;
+}
+
+.row .col-md-12 a {
+    display: block;
+    text-align: center;
 }
 
 .tab {
@@ -37,73 +121,71 @@ font-family: Risque;
     background-color: inherit;
 }
 
-.row .col-md-12 a {
-    display: block;
-    text-align: center;
-}
-
-#display {
-    border: solid 1px gray;
-    padding: 1px;
-}
 
 .thumbnail a>img {
     width: 240px;
     height: 140px;
 }
 
-    .youtube-player, #newSongWrapper {
-        display: block;
-        position: relative;
-        padding-bottom: 56.23%;
-        /* Use 75% for 4:3 videos */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        background: #000;
-        margin: 5px;
-    }
-    
-    .youtube-player iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 100;
-        background: transparent;
-    }
-    
-    .youtube-player img, #newSong {
-        bottom: 0;
-        display: block;
-        left: 0;
-        margin: auto;
-        max-width: 100%;
-        width: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: none;
-        height: auto;
-        cursor: pointer;
-        -webkit-transition: .4s all;
-        -moz-transition: .4s all;
-        transition: .4s all;
-    }
-    
-    .youtube-player img:hover {
-        -webkit-filter: brightness(75%);
-    }
-    
-    .youtube-player .play {
-        height: 72px;
-        width: 72px;
-        left: 50%;
-        top: 50%;
-        margin-left: -36px;
-        margin-top: -36px;
-        position: absolute;
-        background: url("//i.imgur.com/TxzC70f.png") no-repeat;
-        cursor: pointer;
-    }
+
+.wrap {
+    white-space: pre-wrap;
+}
+
+.youtube-player,
+#newSongWrapper {
+    display: block;
+    position: relative;
+    padding-bottom: 56.23%;
+    /* Use 75% for 4:3 videos */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 5px;
+}
+
+.youtube-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: transparent;
+}
+
+.youtube-player img,
+#newSong {
+    bottom: 0;
+    display: block;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    height: auto;
+    cursor: pointer;
+    -webkit-transition: .4s all;
+    -moz-transition: .4s all;
+    transition: .4s all;
+}
+
+.youtube-player img:hover {
+    -webkit-filter: brightness(75%);
+}
+
+.youtube-player .play {
+    height: 72px;
+    width: 72px;
+    left: 50%;
+    top: 50%;
+    margin-left: -36px;
+    margin-top: -36px;
+    position: absolute;
+    background: url("//i.imgur.com/TxzC70f.png") no-repeat;
+    cursor: pointer;
+}

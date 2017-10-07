@@ -2,42 +2,58 @@
 
 <h1 class = 'text-center'><%= show.title %></h1>
 
+
+
 <div class="tab">
   <a class = 'btn btn-default active' href = '/shows/<%=show._id%>/screenshots'>Screenshots</a>
   <a class = 'btn btn-default' href = '/shows/<%=show._id%>/songs'+>Songs</a>
 </div>
 
-
 <div id = 'display'>
-    <div class = 'clearfix'>
+    <div class = 'row clearfix'>
         <% show.screenshots.forEach(function (screenshot, i) { %>
-        <div class = 'col-lg-3 col-md-4 col-sm-6'>  
-        <div class = 'thumbnail'>
-        <a href="<%= screenshot.image %>" data-fancybox="images">
-      <img src = '<%= screenshot.image %>'></img>
-      
-  </a>
-  <div class = 'caption text-center'>
-    Episode <%= screenshot.episode %>
-  </div>
-  </div>
-</div>
+        
+            <div class = 'screenshot col-lg-3 col-md-4 col-sm-6'>  
+                <div class = 'thumbnail relative'>
+                    <a href="<%= screenshot.image %>" data-fancybox="images">
+                        <img src = '<%= screenshot.image %>'></img>
+                    </a>
+          
+                    <div class = 'relative caption text-center'>
+                        Episode <%= screenshot.episode %>
+                    </div>
+                    
+                    <% if (user && screenshot.creator.id == user._id)  { %>
+                        <div class = 'editDelete'>
+                            <a class = 'inline' href = './screenshots/<%= screenshot._id %>/edit'>
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <form action = "./screenshots/<%= screenshot._id %>?_method=DELETE" method = "POST" class = 'inline'>
+                                <button><i type ='submit' class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+ 
+            </div>
             
         <% }) %>
+        
         <div class = 'col-lg-3 col-md-4 col-sm-6 '>  
-        <div class = 'thumbnail'>
-          <a href = '/shows/<%= show._id %>/screenshots/new'>
-          <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEd28ld-QLSSfNqwCz24NclF3t08_nIdbyhlR4rEZsoMRyNOqf'>
-          </a>
+        
+            <div class = 'thumbnail'>
+                
+                <a href = '/shows/<%= show._id %>/screenshots/new'>
+                    <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEd28ld-QLSSfNqwCz24NclF3t08_nIdbyhlR4rEZsoMRyNOqf'>
+                </a>
+                <div class = 'caption text-center'>Add an image</div>
+    
+            </div>
+    </div>
 
-          
-          <div class = 'caption text-center'>
-            Add an image
-          </div>
-    </div>
-    </div>
 </div>
 
+<% include ../partials/showbuttons.ejs %>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
 

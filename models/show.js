@@ -6,6 +6,10 @@ var showSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Screenshot"
     }],
+    creator: {
+        id: String,
+        username: String
+    },
     songs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Song"

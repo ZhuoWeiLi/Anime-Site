@@ -19,13 +19,16 @@ router.post("/register", function(req, res) {
     });
     User.register(newUser, req.body.password, function(err, user) {
         if (err) {
-            console.log(err);
-            return res.render("register");
+            req.flash('error', 'Registration failed, most likely this username has been taken')
+            res.redirect("/register");
         }
-        passport.authenticate("local")(req, res, function() {
-            console.log(user)
-            res.redirect('/')
-        });
+        else {
+            passport.authenticate("local")(req, res, function() {
+                req.flash('success', 'Registration successful')
+                res.redirect('/shows')
+            });
+        }
+
     });
 });
 
@@ -34,9 +37,9 @@ router.post('/login', passport.authenticate("local", {
     failureRedirect: "/login"
 }))
 
-router.get("/signout", function(req, res){
-   req.logout();
-   res.redirect("/");
+router.get("/signout", function(req, res) {
+    req.logout();
+    res.redirect("back");
 });
 
 module.exports = router;

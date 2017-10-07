@@ -1,34 +1,51 @@
 <% include ../partials/header.ejs %>
 
-  <h1 class='text-center'>
+<h1 class='text-center'>
     <%= show.title %>
-  </h1>
+</h1>
 
-  <div class="tab">
+<div class="tab">
     <a class='btn btn-default' href='/shows/<%=show._id%>/screenshots'>Screenshots</a>
-    <a class='btn btn-default active' href='/shows/<%=show._id%>/songs' +>Songs</a>
-  </div>
+    <a class='btn btn-default active' href='/shows/<%=show._id%>/songs'>Songs</a>
+</div>
 
+<div id='display'>
 
-  <div id='display'>
     <div class='row'>
-      <% show.songs.forEach(function (song, i) { %>
 
-        <div class='col-md-4 col-sm-6'>
-          <div class="youtube-player" data-id="<%= song.vidID %>"></div>
-          <p class='text-center'>
-            <%= song.title %><br><a href="./songs/<%= song._id %>/lyrics">Show Lyrics</a></p>
-        </div>
+        <% show.songs.forEach(function (song, i) { %>
+
+            <div class='col-md-4 col-sm-6'>
+                <div class="youtube-player" data-id="<%= song.vidID %>"></div>
+                <p class='relative text-center'>
+                    <%= song.title %>
+                    <br>
+                    <a href="./songs/<%= song._id %>/lyrics">Show Lyrics</a>
+                    <% if (user && song.creator.id == user._id)  { %>
+                        <div class='editDelete'>
+                            <a class='inline' href="./songs/<%= song._id %>/edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <form action = './songs/<%= song._id %>?_method=DELETE' method = 'POST' class='inline'>
+                                <button><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    <% } %>
+                </p>
+            </div>
         <% }) %>
-          <div class="col-md-4 col-sm-6">
-            <a id = 'newSongWrapper' href='/shows/<%=show._id%>/songs/new'>
-              <img id='newSong' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/YouTube_Silver_Play_Button.svg/2000px-YouTube_Silver_Play_Button.svg.png" alt="">
+        
+        <div class="col-md-4 col-sm-6">
+            <a id='newSongWrapper' href='/shows/<%=show._id%>/songs/new'>
+                <img id='newSong' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/YouTube_Silver_Play_Button.svg/2000px-YouTube_Silver_Play_Button.svg.png" alt="">
             </a>
             <p class='text-center'>Add a New Song</p>
-          </div>
+        </div>
     </div>
-  </div>
 
-<script src = "/js/video.js"></script>
+    <% include ../partials/showbuttons.ejs %>
+</div>
 
-  <% include ../partials/footer.ejs %>
+<script src="/js/video.js"></script>
+
+<% include ../partials/footer.ejs %>

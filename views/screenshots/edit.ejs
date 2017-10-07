@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+
+    <h1 class = 'text-center'>Edit a Screenshot</h1>
+    
+    <form action = "../<%= screenshot._id %>?_method=PUT" method = "POST">
+        
+        <div class="form-group">
+            <input class="form-control" type="text" name="screenshot[episode]" value="<%= screenshot.episode%>">
+        </div>
+        
+         <div class="form-group">
+            <input class="form-control" type="text" name="screenshot[image]" value="<%= screenshot.image %>">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-lg btn-success btn-block">Submit!</button>
+        </div>
+        
+    </form>
+
+<% include ../partials/footer.ejs %>

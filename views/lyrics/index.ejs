@@ -4,16 +4,39 @@
 
 
 <% song.lyrics.forEach((lyric) => { %>
+
     <hr>
-    <h2><%= lyric.language%></h2>
-    <% if (lyric.lyrics.length <= 200) { %>
-    <p class = 'text-center'><%= lyric.lyrics %></p>
-    <% } else { %>
-    <p class = 'text-center wrap'><%= lyric.lyrics.slice(0, 200)%>...</p>
-    <% } %>
     
-    <a href = './lyrics/<%= lyric._id %>'>See Full Page</a>
+    <div class = 'relative'>
+        
+        <h2><%= lyric.language%></h2>
+        
+        <% if (lyric.lyrics.length <= 200) { %>
+        <p class = 'text-center'><%= lyric.lyrics %></p>
+        <% } else { %>
+        <p class = 'text-center wrap'><%= lyric.lyrics.slice(0, 200)%>...</p>
+        <% } %>
+       
+        <a href = './lyrics/<%= lyric._id%>'>See Full Page</a>
+        
+        <% if (user && lyric.creator.id == user._id)  { %>
+            <div class = 'editDelete'>
+                
+            <a href = './lyrics/<%= lyric._id %>/edit' class = 'inline'>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+            
+            <form action = './lyrics/<%= lyric._id %>?_method=DELETE' class = 'inline' method = 'POST'>
+            <button class = 'no-border'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </form>
+            
+            </div>
+        <% } %>
     
+    
+    
+    </div>
 <% }) %>
+
 
 <% include ../partials/footer.ejs %>
