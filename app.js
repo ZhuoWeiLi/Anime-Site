@@ -27,6 +27,7 @@ const express = require('express'),
 // seedDB();
 mongoose.Promise = global.Promise;
 
+// mongoose.connect("mongodb://localhost/animeme");
 mongoose.connect(process.env.DATABASEURL);
 app.set('view engine', 'ejs');
 

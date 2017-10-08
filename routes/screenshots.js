@@ -31,7 +31,15 @@ router.post('/', middleware.userLoggedIn, function(req, res) {
                 else {
                     show.screenshots.push(screenshot)
                     show.screenshots.sort((a, b) => {
-                        return a.episode - b.episode;
+                        if(!a.episode) {
+                            return 1
+                        }
+                        else if(!b.episode) {
+                            return -1
+                        }
+                        else {
+                            return a.episode - b.episode;
+                        }
                     })
                     show.save(function() {
                         res.redirect('/shows/' + req.params.id + '/screenshots');

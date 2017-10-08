@@ -20,7 +20,11 @@
                     </a>
           
                     <div class = 'relative caption text-center'>
+                        <% if(screenshot.episode) { %>
                         Episode <%= screenshot.episode %>
+                        <% } else { %>
+                        Episode -
+                        <% } %>
                     </div>
                     
                     <% if (user && screenshot.creator.id == user._id)  { %>
