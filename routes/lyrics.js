@@ -18,7 +18,6 @@ router.get('/new', middleware.userLoggedIn, function(req, res) {
 router.post('/', middleware.userLoggedIn, function(req, res) {
     req.body.lyric.creator = { id: res.locals.user._id, username: res.locals.user.username }
     Lyric.create(req.body.lyric, function(err, lyric) {
-        console.log(res.locals.show)
         res.locals.song.lyrics.push(lyric)
         res.locals.song.save(function() {
             res.redirect('../lyrics')
@@ -26,9 +25,7 @@ router.post('/', middleware.userLoggedIn, function(req, res) {
     })
 })
 
-router.get('/:lyricid', function(req, res) {
-    res.render('lyrics/show')
-})
+
 
 router.use('/:lyricid*', function(req, res, next) {
     Lyric.findById(req.params.lyricid, (err, lyric) => {
@@ -41,6 +38,10 @@ router.use('/:lyricid*', function(req, res, next) {
         }
 
     })
+})
+
+router.get('/:lyricid', function(req, res) {
+    res.render('lyrics/show')
 })
 
 router.get('/:lyricid/edit', middleware.userLoggedIn, middleware.verifyOwnership('lyric'), function(req, res) {
