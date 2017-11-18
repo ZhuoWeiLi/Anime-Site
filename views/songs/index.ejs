@@ -23,7 +23,7 @@
                     <%= song.title %>
                     <br>
                     <a href="./songs/<%= song._id %>/lyrics">Show Lyrics</a>
-                    <% if (user && song.creator.id == user._id)  { %>
+                    <% if (user && song.creator.id == user._id || user.isAdmin)  { %>
                         <div class='editDelete'>
                             <a class='inline' href="./songs/<%= song._id %>/edit">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
