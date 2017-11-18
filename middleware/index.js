@@ -10,7 +10,7 @@ module.exports = {
     },
     verifyOwnership(modelType) {
         return function(req, res, next) {
-            if (res.locals[modelType].creator.id == res.locals.user._id) {
+            if (res.locals[modelType].creator.id == res.locals.user._id || res.locals.user.isAdmin) {
                 next();
             }
             else {
