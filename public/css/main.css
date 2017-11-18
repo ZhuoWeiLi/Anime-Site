@@ -35,6 +35,10 @@ button {
     margin: 3% 0 1% 8%;
 }
 
+#page {
+    margin-top: 2%;
+}
+
 
 .delete-button {
     bottom: 1px;
