@@ -29,7 +29,7 @@
                         <% } %>
                     </div>
                     
-                    <% if (user && screenshot.creator.id == user._id || user.isAdmin)  { %>
+                    <% if (user && screenshot.creator.id == user._id)  { %>
                         <div class = 'editDelete'>
                             <a class = 'inline' href = './screenshots/<%= screenshot._id %>/edit'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
