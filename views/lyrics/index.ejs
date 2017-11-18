@@ -21,7 +21,7 @@
        
         <a href = './lyrics/<%= lyric._id%>'>See Full Page</a>
         
-        <% if (user && lyric.creator.id == user._id || user.isAdmin)  { %>
+        <% if (user && (show.creator.id == user._id || user.isAdmin)) { %>
             <div class = 'editDelete'>
                 
             <a href = './lyrics/<%= lyric._id %>/edit' class = 'inline'>

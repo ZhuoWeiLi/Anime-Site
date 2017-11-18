@@ -1,4 +1,4 @@
-    <% if (user && show.creator.id == user._id)  { %>
+    <% if (user && (show.creator.id == user._id || user.isAdmin))  { %>
         <a href='./edit'><button class = 'btn btn-info edit-button'>Edit Show</button></a>
         <form action="/shows/<%= show._id %>?_method=DELETE" method="POST">
               <button class='btn btn-danger delete-button'>Delete Show</button>
