@@ -3,4 +3,11 @@ A website that allows users to freely share songs, screenshots and lyrics from p
 
 ## How to use
 
-Setup a mongoDB instance and then set up an environment variable DATABASEURL with the url to the database.
+Setup a mongoDB instance and then create an environment variable DATABASEURL with the url to the database.
+
+```bash
+git clone https://github.com/ZhuoWeiLi/Shows-Site/
+cd Shows-Site
+npm install
+node app.js
+```
